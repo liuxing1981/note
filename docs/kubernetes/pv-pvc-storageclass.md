@@ -10,7 +10,7 @@
 *    ReadWriteMany：这种存储可以以读写的方式被多个Pod共享。
 > NOTE: 不是每一种存储都支持这三种方式，像共享方式，目前支持的还比较少，比较常用的是NFS。在PVC绑定PV时通常根据两个条件来绑定，一个是存储的大小，另一个就是访问模式。
 
-![ALT](../images/kubernetes/accessMode.png)
+![ALT](../../images/kubernetes/accessMode.png)
 
 
 ### 回收策略
@@ -31,7 +31,7 @@
 *   Released – PVC被删掉，资源没有被在利用
 *   Failed – 自动回收失败
 
-![ALT](../images/kubernetes/k8s_storage.png)
+![ALT](../../images/kubernetes/k8s_storage.png)
 
 ### 整个生命周期是
 1. Provisioning: 创建PV
@@ -48,7 +48,7 @@
 ### PVC中利用注解来选定StorageClass
 > 用户在 PersistentVolumeClaim 中可以包含一个 StorageClass 申请动态提供存储。这一任务需要使用 **volume.beta.kubernetes.io/storage-class** 注解来完成。这一注解的值必须符合管理员配置的 StorageClass 名称。
 
-![ALT](../images/kubernetes/storageClass.png)
+![ALT](../../images/kubernetes/storageClass.png)
 
 ##### provisioner是存储的提供商
 ##### parameters是提供商提供的一些参数，每个provisioner提供的不一样
