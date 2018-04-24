@@ -1,10 +1,13 @@
-# Summary
-
-* [docker](docs/docker.md)
-* [kubernetes](docs/kubernetes.md)
+* [docker](docs/docker/readme.md)
+  * [docker-compose](docs/docker/docker-compose.md)
+* [git](docs/git/readme.md)
+  * [gitignore](docs/git/gitignore.md)
+* [kubernetes](docs/kubernetes/readme.md)
   * [auth](docs/kubernetes/auth.md)
-  * [secret](docs/kubernetes/secret.md)
   * [pv-pvc-storageclass](docs/kubernetes/pv-pvc-storageclass.md)
+  * [secret](docs/kubernetes/secret.md)
+* [ldap](docs/ldap.md)
+* [shell](docs/shell/readme.md)
+  * [array](docs/shell/array.md)
+  * [variables](docs/shell/variables.md)
 
-* [linux shell](docs/shell.md)
-* [ssh](docs/ssh.md)
