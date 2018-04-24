@@ -9,5 +9,6 @@
 * [ldap](docs/ldap.md)
 * [shell](docs/shell/readme.md)
   * [array](docs/shell/array.md)
+  * [case](docs/shell/case.md)
   * [variables](docs/shell/variables.md)
 
