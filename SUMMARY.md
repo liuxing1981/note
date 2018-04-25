@@ -1,5 +1,8 @@
 * [docker](docs/docker/readme.md)
   * [docker-compose](docs/docker/docker-compose.md)
+  * [live-restore](docs/docker/live-restore.md)
+  * [README](docs/docker/README.md)
+  * [user-namespace](docs/docker/user-namespace.md)
 * [git](docs/git/readme.md)
   * [gitignore](docs/git/gitignore.md)
 * [kubernetes](docs/kubernetes/readme.md)
@@ -11,4 +14,6 @@
   * [array](docs/shell/array.md)
   * [case](docs/shell/case.md)
   * [variables](docs/shell/variables.md)
+* [words](docs/words/readme.md)
+  * [README](docs/words/README.md)
 
