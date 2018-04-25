@@ -1,0 +1,75 @@
+#!/bin/bash
+#usage:delete file for safe mode
+#author:figo
+#desc:mv the file to the ~/.Trash folder
+#use "empty" arg for clear the /.Trash folder
+RC=$HOME/.bashrc
+#copy srm file to bin
+foo(){
+   echo 'cp srm ~/bin/srm'
+   cp srm $HOME/bin/
+   if [[ ! "$PATH" =~ "$HOME/bin" ]];then
+       grep "$HOME/bin" $RC
+       if [ "$?" != "0" ];then
+           echo "add path $HOME/bin"
+           sed -i '/export PATH=/d' $RC
+           echo "export PATH=$PATH:$HOME/bin" >> $RC
+       fi
+   fi
+   source $RC
+}
+
+
+if [ ! "$1" ];then
+    cat $RC | grep srm 2>&1>/dev/null
+    if [ "$?" != 0 ];then
+        echo 'alias rm=srm' | tee -a $RC
+        source $RC
+        alias rm
+    fi
+    [ -e $HOME/bin ] || mkdir -p $HOME/bin
+    if [ -e $HOME/bin/srm ];then
+        old=`md5sum ./srm | awk '{print $1}'`
+        new=`md5sum $HOME/bin/srm | awk '{print $1}'`
+        if [ "$old" != "$new" ];then
+            echo "srm file changed"
+            foo
+        fi
+    else
+        echo "srm file is not exist"
+        foo
+    fi
+    echo "srm has been installed."
+    echo "run command: source $RC to enable srm"
+    exit 0;
+fi
+TRASH=~/.Trash
+rm=/bin/rm
+
+[ -d $TRASH ] || mkdir $TRASH
+if [[ "$1" = "empty" ]];then
+    read -p "Are you sure to clean all the files in $TRASH folder[Y/N]" is_delete
+    if [[ "$is_delete" == "y" || "$is_delete" == "Y" ]];then
+	$rm -rf $TRASH/*
+    fi		
+    exit 0
+elif [[ "$1" = "ls" ]];then
+    ls $TRASH
+    exit 0
+fi    
+
+if [[ $1 =~ "-" ]];then
+   shift
+fi
+job() {
+    if [ -e "$TRASH/$1" ];then
+       date=`date "+%F%T" |  sed -e 's/[-:]//g'`
+       TRASH=$TRASH/$1-$date
+    fi
+    mv $1 $TRASH
+}
+#for many files
+for f in $@;do
+    job $f
+done
+
