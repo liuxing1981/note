@@ -16,15 +16,15 @@ for f in `find $DOCS -name "*" | sort`;do
     #if file is a md file 
     if [[ "$file" =~ ".md" ]];then 
         file=`echo $file | sed 's/\.md//'`
-        [ "$file" = "readme" ] && continue
+        [ "$file" = "readme" -o "$file" = "README" ] && continue
     else
         result=`find $f -iname readme.md | wc -l`
         if [ "$result" -eq "0"  ];then
            dir=`echo $f | awk -F/ '{print $NF}'`
-           touch $f/readme.md
-           echo -n "# The note for $dir"> $f/readme.md
+           touch $f/README.md
+           echo -n "# The note for $dir"> $f/README.md
         fi
-        f="$f/readme.md"
+        f="$f/README.md"
     fi
     LINE="${SPACE}* [${file}](${f})"
     CONTENTS="$CONTENTS$LINE\n"

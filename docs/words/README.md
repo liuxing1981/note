@@ -31,5 +31,8 @@ n. 	复杂性，错综复杂的状态; 复杂的事物; 复合物
 standpoint 立场观点
 overlap 重叠
 gain 获得，赢得
-
+mitigate 使缓和，使减轻; 使平息
+adequate 充足的
+effectively 有效的
+moderately [ˈmɒdərətli] 适度地; 普通地; 温和度; 不过度地;
 ```
