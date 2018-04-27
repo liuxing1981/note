@@ -62,7 +62,8 @@ case $1 in
     ;;
 "--uninstall")
     $RM -f $HOME/bin/srm
-    sed -i 's/alias rm=srm/unalias rm/' $RC 
+    #sed -i 's/alias rm=srm/unalias rm 2>\/dev\/null/' $RC 
+    sed -i 's/alias rm=srm//' $RC 
     echo "srm is uninstalled successed."
     echo "run command: source $RC to disable srm"
     exit 0
