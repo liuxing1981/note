@@ -35,4 +35,7 @@ mitigate 使缓和，使减轻; 使平息
 adequate 充足的
 effectively 有效的
 moderately [ˈmɒdərətli] 适度地; 普通地; 温和度; 不过度地;
+appropriate [əˈprəʊpriət] 合适的
+preface [ˈprefəs] 序言，引语; 开端，前奏;
+for simplicity 简单起见
 ```
