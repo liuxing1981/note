@@ -14,6 +14,7 @@
   * [change-nic](docs/linux/change-nic.md)
   * [chrony](docs/linux/chrony.md)
   * [Hypervisor](docs/linux/Hypervisor.md)
+  * [kernel](docs/linux/kernel.md)
   * [yum](docs/linux/yum.md)
 * [shell](docs/shell/README.md)
   * [array](docs/shell/array.md)
