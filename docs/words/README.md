@@ -37,5 +37,7 @@ effectively 有效的
 moderately [ˈmɒdərətli] 适度地; 普通地; 温和度; 不过度地;
 appropriate [əˈprəʊpriət] 合适的
 preface [ˈprefəs] 序言，引语; 开端，前奏;
-for simplicity 简单起见
+for simplicity 简单起见 
+stratum 阶层，社会阶层
+describe 描述
 ```
