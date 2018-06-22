@@ -26,6 +26,7 @@
   * [samba](docs/linux/samba.md)
   * [ssh](docs/linux/ssh.md)
   * [yum](docs/linux/yum.md)
+* [mongo](docs/mongo/README.md)
 * [mysql](docs/mysql/README.md)
 * [nodemcu](docs/nodemcu/README.md)
   * [nodemcu](docs/nodemcu/nodemcu.md)
