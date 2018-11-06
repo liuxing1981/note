@@ -5,7 +5,7 @@ CONTENTS=
 for f in `find $DOCS -name "*" | sort`;do
     LINE=
     SPACE=
-    [ "$f" = "$DOCS" ] && continue
+#    [ "$f" = "$DOCS" ] && continue
 
     #print space
     count=$(echo $f | grep -o "/" | wc -l)
