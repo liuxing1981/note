@@ -1,6 +1,3 @@
-# The note for shell
-
-创建密码
+# The note for  The创建密码
 ```
-openssl rand -hex 10
 ```
