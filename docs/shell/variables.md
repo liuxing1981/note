@@ -52,6 +52,8 @@ ${file%/*}   /dir1/dir2/dir3
 ${file%%/*} 拿掉第一条 / 及其右边的字符串：(空值)
 ${file%.*}   /dir1/dir2/dir3/my.file
 ${file%%.*}  /dir1/dir2/dir3/my
+
+echo ${string: -4}    //2341  ：右边有格   截取后4位
 ```
 
 ```

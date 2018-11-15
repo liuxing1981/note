@@ -13,6 +13,7 @@ case $1 in
     echo "gitbook in debug mode" 
     ;;
     local)
+    rm -rf book.json
     docker run --name $NAME -d -p 4000:4000 \
         -v `pwd`:/root/project \
 	liuxing1981/gitbook
