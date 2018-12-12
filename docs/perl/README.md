@@ -74,3 +74,7 @@ print for(`ls -al`);
     print OUT $_ for(`ls -al`); #用while不可以
     close OUT;
 ```
+
+## 执行shell命令
+1. system command  #返回执行结果 $?
+2. `command`  #返回输出结果

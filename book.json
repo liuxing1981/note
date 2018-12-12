@@ -2,7 +2,7 @@
     "plugins": ["-lunr", "-search", "search-plus","toggle-chapters","splitter","ace","edit-link"],
     "pluginsConfig": {
         "edit-link": {
-            "base": "https://github.com/liuxing1981/note/edit/master/",
+            "base": "GIT_HUB",
             "label": "Edit This Page"
          }
      }

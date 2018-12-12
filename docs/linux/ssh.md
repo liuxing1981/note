@@ -1,4 +1,19 @@
 ## ssh 设置
+
+## ssh 远程登录问题
+```
+vi /etc/ssh/sshd_config
+StrictModes no
+PubkeyAuthentication yes
+UsePAM no
+
+Comment the line root@10.9.248.29
+#AllowUsers oamsys cntdb provgw *sftp* #root@10.9.248.29
+service sshd restart
+chmod 600 ~provgw/.ssh/authorized_keys
+
+```
+
 ```
     vi /etc/ssh/sshd_config
 
