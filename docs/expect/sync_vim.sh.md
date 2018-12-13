@@ -1,3 +1,4 @@
+```
 #########################################################################
 # File Name: sync_vim.sh
 # Author: luis
@@ -36,3 +37,4 @@ sync_remote() {
 sync_remote xliu074 135.242.137.120 xliu074 /home/luis/.vimrc
 sync_remote happym 135.242.137.120 happym /home/luis/.vimrc
 sync_local ~/.vimrc luis
+```
