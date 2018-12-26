@@ -7,4 +7,4 @@ showkey -a
 
 在.bashrc
 stty erase ^H
-``
+```

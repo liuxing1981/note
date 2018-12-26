@@ -26,10 +26,32 @@ expect eof
     set timeout 10  
     spawn ssh root@$ip
     expect {
-    "*yes/no" { send "yes\r"; exp_continue}  //第一次ssh连接会提示yes/no,继续  
-    "*password:" { send "$password\r" }      //出现密码提示,发送密码  
+    "*yes/no" { send "yes\r"; exp_continue} 
+    "*password:" { send "$password\r" } 
     }  
     interact
+```
+
+## 切换到root用户
+## *expect su.exp 执行*
+```
+#########################################################################
+# File Name: su.exp
+# Author: luis
+# mail: xing.1.liu@nokia-sbell.com
+# Created Time: 2018-12-15 09:49
+#########################################################################
+#!/usr/bin/expect
+set timeout 30
+set password root
+spawn -noecho su - 
+expect "Password:"
+send "$password\r"
+expect "#"
+send "cd /root\r"
+expect "#"
+send "clear\r"
+interact
 ```
 
 ```

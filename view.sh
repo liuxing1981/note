@@ -1,8 +1,10 @@
 #!/bin/bash
+./commit.sh
 NAME=note
 docker rm -fv $NAME 2>/dev/null
 #docker volume create note
-case $1 in
+[ -z "$1" ] && arg=local
+case $arg in
     debug)
     docker run --name $NAME -it -p 4000:4000 \
         -e GIT_URL=git@github.com:liuxing1981/${NAME}.git \
@@ -29,4 +31,4 @@ case $1 in
     echo "gitbook in github view mode,http://localhost:4000"
     ;;
 esac
-docker logs -f note
+#docker logs -f note
