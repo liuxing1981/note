@@ -7,7 +7,7 @@ set timeout 30
 set password root
 set command "systemctl  status sshd"
 spawn su -
-expect "Password:"
+expect "*assword:"
 send "$password\r"
 expect "root"
 send "$command\r"
@@ -15,6 +15,19 @@ expect "root"
 send "exit\r"
 #interact  
 expect eof
+```
+
+```
+#!/bin/bash
+PASS=root
+CMD='ls /tmp'
+expect -c "
+  spawn su -
+  expect \"*assword\"
+  send \"$PASS\r\";
+  expect \"*root*\"
+  send \"$CMD\r\"
+  expect eof"
 ```
 
 

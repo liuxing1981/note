@@ -31,4 +31,4 @@ case $arg in
     echo "gitbook in github view mode,http://localhost:4000"
     ;;
 esac
-#docker logs -f note
+docker logs -f note

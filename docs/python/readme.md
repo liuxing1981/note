@@ -2,7 +2,7 @@
 
 ## import re
 ### match
-1.可以用来判断是否匹配
+1.从开头判断是否匹配
 ```
 if re.match(r'hello.*',a):
     print 'yes'
@@ -17,6 +17,16 @@ m = re.match(r'hello-([a-z]*)',str)
 for g in m.groups():
     print g
 #kitty
+```
+
+### search
+1. 只要有匹配就算成功
+``` 
+a = 'a b c d hello ef g'
+m1 = re.search(r'hello', a)
+m2 = re.match(r'\w.*hello.*', a)
+print(m1.group())
+print(m2.group())a = 'a b c d hello ef g'
 ```
 
 ### findall
