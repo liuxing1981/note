@@ -17,7 +17,7 @@ for f in `find $DOCS -name "*" | sort`;do
     if [[ "$file" =~ ".md" ]];then 
         file=`echo $file | sed 's/\.md//'`
         [ "$file" = "readme" -o "$file" = "README" ] && continue
-    else
+    elif [ -d $DOC/$file ];then
         result=`find $f -iname readme.md | wc -l`
         if [ "$result" -eq "0"  ];then
            dir=`echo $f | awk -F/ '{print $NF}'`

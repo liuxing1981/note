@@ -32,21 +32,55 @@ sudo apt install ubuntu-gnome-desktop
 sudo systemctl enable gdm
 sudo systemctl start gdm
 vncpasswd
-vi ~/.vnc/xstartup
+```
 
+```
+vi ~/.vnc/xstartup
 #!/bin/sh
 # Start Gnome 3 Desktop 
 [ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
 [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
 vncconfig -iconic &
 dbus-launch --exit-with-session gnome-session &
+```
 
+```
 vi ~/vncStart.sh
 
 #!/bin/bash
-vncserver -kill :1
-vncserver :1 -geometry 2560x1440 -depth 32 -localhost no
-
-./vncStart.sh
+SESSION=$1
+if [ ! $SESSION ];then
+	SESSION=1
+fi
+vncserver -kill :$SESSION
+vncserver :$SESSION +extension Composite
 ```
 
+```
+vi ~/.vnc/config
+securitytypes=vncauth,tlsvnc
+desktop=sandbox
+geometry=2550x1440
+dpi=96
+alwaysshared
+```
+
+
+# Tigervnc
+```
+vi ~/.vnc/xstartup
+#!/bin/sh
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+#exec dbus-launch startxfce4
+#deepin desktop
+exec dbus-launch startdde
+```
+
+```
+vi /etc/systemd/journald.conf
+ForwardToWall=no
+
+systemctl daemon-reload
+systemctl restart systemd-journald
+```
