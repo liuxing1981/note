@@ -5,28 +5,30 @@ CONTENTS=
 for f in `find $DOCS -name "*" | sort`;do
     LINE=
     SPACE=
-#    [ "$f" = "$DOCS" ] && continue
+    [ "$f" = "$DOCS" ] && continue
 
     #print space
     count=$(echo $f | grep -o "/" | wc -l)
     for((i=0;i<$count-1;i++));do
        SPACE="$SPACE  "
     done
-    file=${f##*/}
+    file=$(basename $f)
+    readme=$f
     #if file is a md file 
-    if [[ "$file" =~ ".md" ]];then 
-        file=`echo $file | sed 's/\.md//'`
-        [ "$file" = "readme" -o "$file" = "README" ] && continue
-    elif [ -d $DOC/$file ];then
+    if [ "$file" == "readme.md" -o "$file" == "README.md" ];then
+        continue 
+    elif [ -d $f ];then
         result=`find $f -iname readme.md | wc -l`
         if [ "$result" -eq "0"  ];then
-           dir=`echo $f | awk -F/ '{print $NF}'`
-           touch $f/README.md
-           echo -n "# The note for $dir"> $f/README.md
+            dir=$(dirname $f)
+            touch $f/README.md
+            echo -n "# The note for $dir"> $f/README.md
+            readme="$f/README.md"
+        elif [ "$result" -eq "1"  ];then
+            readme=$(find $f -iname readme.md)
         fi
-        f="$f/README.md"
     fi
-    LINE="${SPACE}* [${file}](${f})"
+    LINE="${SPACE}* [${file}](${readme})"
     CONTENTS="$CONTENTS$LINE\n"
 done
 echo -e "$CONTENTS" > SUMMARY.md
