@@ -1,6 +1,9 @@
 # The note for git
 
 ```
+    # alias
+    alias push='push() { [ "$1" ] && git push origin HEAD:refs/for/$1 || echo "no branch name";git branch;};push'
+
     # 设置编辑器vim
     git config --global core.editor "vim"
 
