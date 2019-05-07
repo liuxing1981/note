@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 ./commit.sh
 NAME=note
 docker rm -fv $NAME 2>/dev/null
