@@ -79,3 +79,11 @@ mvn archetype:generate \
 </dependency>
 ```
 
+## Variable
+```
+    <properties>
+        <project.build.name>tools</project.build.name>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+```
+

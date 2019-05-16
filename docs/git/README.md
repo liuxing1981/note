@@ -22,5 +22,23 @@
     # 推送所有分支
     git config --global push.default matching
 
-    
+    # set http post buffer
+    git config http.postBuffer 524288000 #524M
+
+```
+
+## About Proxy
+### set
+```
+git config --global https.proxy http://127.0.0.1:1080
+git config --global https.proxy https://127.0.0.1:1080
+
+git config --global http.proxy 'socks5://127.0.0.1:1080' 
+git config --global https.proxy 'socks5://127.0.0.1:1080'
+```
+
+### unset
+```
+git config --global --unset http.proxy
+git config --global --unset https.proxy
 ```
