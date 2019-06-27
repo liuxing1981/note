@@ -33,12 +33,15 @@ awk 'BEGIN{ do{print "test";i++}while(i<5) }'
 #### continue,break
 #### next
 >结束处理当前行
+
 ```
 # 跳过处理第二行
 awk '{if(NR==2)next;print $0}' /etc/passwd
 ```
+
 #### exit 
 > 退出awk，但是END模式的语句会被执行
+
 ```
 # start
 # end

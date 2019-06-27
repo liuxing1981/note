@@ -59,3 +59,19 @@ sed '1,${/This/d;s/^ *//g}' pets.txt
 ## D,d
 * D命令是删除当前模式空间开端至\n的内容（不在传至标准输出），放弃之后的命令，但是对剩余模式空间重新执行sed。
 * d命令是删除当前模式空间内容（不再传至标准输出），并放弃之后的命令，并对新读取的内容，重头执行sed。
+
+
+## hold space
+* g： 将hold space中的内容拷贝到pattern space中，原来pattern space里的内容清除
+* G： 将hold space中的内容append到pattern space\n后
+* h： 将pattern space中的内容拷贝到hold space中，原来的hold space里的内容被清除
+* H： 将pattern space中的内容append到hold space\n后
+* x： 交换pattern space和hold space的内容
+
+## \[^,\]* 代替贪婪正则，取不包含，的  .*非贪婪写法 \[^,\]*
+
+```
+<b>This</b> is what <span style="text-decoration: underline;">I</span> meant. Understand?
+sed 's/<.*>//g' html.txt   这种是贪婪匹配，会匹配到最后一个span
+sed 's/<[^>]*>//g' html.txt  对应的非贪婪，贪婪的标记是>   [^>]*代替.*
+```

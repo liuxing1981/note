@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-./commit.sh
+#./commit.sh
 NAME=note
 docker rm -fv $NAME 2>/dev/null
 #docker volume create note
