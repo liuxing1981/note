@@ -12,6 +12,9 @@
 *    -n 自动循环，相当于 while(<>) { 脚本; }
 *    -p 自动循环+自动输出，相当于 while(<>) { 脚本; print; }
 
+> -n 不会打印，要显示调用print打印
+> -p 会每行打印$_的值
+
 ## s///替换
 ```
     $b = $a =~ s/best/ggggggggggggg/r;
@@ -78,3 +81,12 @@ print for(`ls -al`);
 ## 执行shell命令
 1. system command  #返回执行结果 $?
 2. `command`  #返回输出结果
+
+## 非贪婪
+* 。+？
+* .*? 
+* {n,m}? 
+* {m,}?
+
+## 不捕获
+* ?:
