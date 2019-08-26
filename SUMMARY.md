@@ -1,3 +1,6 @@
+* [AEP](docs/AEP/README.md)
+  * [FeatureFlag](docs/AEP/FeatureFlag.md)
+  * [RBAC](docs/AEP/RBAC.md)
 * [awk](docs/awk/README.md)
   * [Action](docs/awk/Action.md)
   * [Function](docs/awk/Function.md)
@@ -67,6 +70,7 @@
 * [shell](docs/shell/README.md)
   * [array](docs/shell/array.md)
   * [case](docs/shell/case.md)
+  * [getopt](docs/shell/getopt.md)
   * [variables](docs/shell/variables.md)
 * [sqlalchemy](docs/sqlalchemy/README.md)
   * [column](docs/sqlalchemy/column.md)
@@ -74,4 +78,3 @@
   * [Query](docs/sqlalchemy/Query.md)
   * [session](docs/sqlalchemy/session.md)
 * [words](docs/words/README.md)
-
