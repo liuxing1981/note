@@ -28,6 +28,7 @@ for f in `find $DOCS -name "*" | sort`;do
             readme=$(find $f -iname readme.md)
         fi
     fi
+	file=${file%.*}
     LINE="${SPACE}* [${file}](${readme})"
     CONTENTS="$CONTENTS$LINE\n"
 done
