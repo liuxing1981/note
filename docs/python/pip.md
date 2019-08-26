@@ -14,6 +14,8 @@ python3 -m pip install -U pip
 ```
 [global]
 index-url = http://mirrors.aliyun.com/pypi/simple/
+proxy = http://135.245.48.34:8000
+
 [install]
 trusted-host=mirrors.aliyun.com
 ```
