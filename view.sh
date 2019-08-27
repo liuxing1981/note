@@ -28,17 +28,17 @@ case $arg in
     echo "gitbook in local view mode"
     ;;
     github)
-	if echo $GIT_USER && echo $GIT_PASS;then
+	if echo $HTTPS_USER && echo $HTTPS_PASS;then
 		docker run --name $NAME -d -p 4000:4000 \
-			-e GIT_URL=https://github.com/liuxing1981/${NAME}.git \
-			-e GIT_USER=$GIT_USER \
-			-e GIT_PASS=$GIT_PASS \
+			-e HTTPS_URL=https://github.com/liuxing1981/${NAME}.git \
+			-e HTTPS_USER=$HTTPS_USER \
+			-e HTTPS_PASS=$HTTPS_PASS \
 			-v /root/project \
 			liuxing1981/gitbook
 		echo "gitbook in github view mode,http://localhost:4000"
 	else
-		echo "Please set GIT_USER as your github username:  GIT_USER=liuxing"
-		echo "Please set GIT_PASS as your github password:  GIT_PASS=password"
+		echo "Please set HTTPS_USER as your github username:  HTTPS_USER=liuxing"
+		echo "Please set HTTPS_PASS as your github password:  HTTPS_PASS=password"
 		exit 2
 	fi
     ;;

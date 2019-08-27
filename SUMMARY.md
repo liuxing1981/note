@@ -1,6 +1,3 @@
-* [AEP](docs/AEP/README.md)
-  * [FeatureFlag](docs/AEP/FeatureFlag.md)
-  * [RBAC](docs/AEP/RBAC.md)
 * [awk](docs/awk/README.md)
   * [Action](docs/awk/Action.md)
   * [Function](docs/awk/Function.md)
