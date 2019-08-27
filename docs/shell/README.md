@@ -4,3 +4,8 @@
 ```
 openssl rand -hex 10
 ```
+
+重定向
+```
+ls >/dev/null 2>&1
+```
