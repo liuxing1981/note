@@ -71,6 +71,7 @@
   * [array](docs/shell/array.md)
   * [case](docs/shell/case.md)
   * [getopt](docs/shell/getopt.md)
+  * [if](docs/shell/if.md)
   * [variables](docs/shell/variables.md)
 * [sqlalchemy](docs/sqlalchemy/README.md)
   * [column](docs/sqlalchemy/column.md)
@@ -78,3 +79,4 @@
   * [Query](docs/sqlalchemy/Query.md)
   * [session](docs/sqlalchemy/session.md)
 * [words](docs/words/README.md)
+
