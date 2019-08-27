@@ -15,7 +15,7 @@ echo $parameter           #输出结果: 空
 > 变量为空，表达式值=word,并且变量值=word
 ```
 parameter=
-echo ${parameter:-word}   #输出结果:word
+echo ${parameter:=word}   #输出结果:word
 echo $parameter           #输出结果:word
 ```
 
