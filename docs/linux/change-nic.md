@@ -1,4 +1,4 @@
-#修改网卡名称为eth0、eth1
+# 修改网卡名称为eth0、eth1
 
 ### 修改网卡名称
 ```
@@ -39,7 +39,9 @@ GRUB_DISABLE_RECOVERY="true"
 ```
 
 ### 生成启动菜单
-```grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
+grub2-mkconfig -o /boot/grub2/grub.cfg
+```
+
 ### 重启系统
 reboot
