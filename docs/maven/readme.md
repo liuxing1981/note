@@ -24,6 +24,43 @@
  </repositories>
 ```
 
+## set proxy
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd" xmlns="http://maven.apache.org/SETTINGS/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<repositories>        
+	  <repository>        
+		<id> central</id>        
+		<name> Maven Repository Switchboard</name>        
+		<layout> default</layout>        
+		<url> http://repo1.maven.org/maven2</url>        
+		<snapshots>        
+		  <enabled> false</enabled>        
+		</snapshots>        
+	  </repository>        
+	</repositories>      
+
+	<proxies>
+		<proxy>
+        <id>myhttpproxy</id>
+        <active>true</active>
+        <protocol>http</protocol>
+        <host>135.245.48.34</host>
+        <port>8000</port>
+        <nonProxyHosts>localhost</nonProxyHosts>
+    </proxy>
+    <proxy>
+        <id>myhttpsproxy</id>
+        <active>true</active>
+        <protocol>https</protocol>
+        <host>135.245.48.34</host>
+        <port>8000</port>
+        <nonProxyHosts>localhost</nonProxyHosts>
+    </proxy>
+	</proxies>
+</settings> 
+```
+
 ## local jar package
 ```
 mvn install:install-file -Dfile=c:\kaptcha-{version}.jar -DgroupId=com.google.code -DartifactId=kaptcha -Dversion={version} -Dpackaging=jar
