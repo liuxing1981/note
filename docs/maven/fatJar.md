@@ -56,7 +56,6 @@
 ```
 
 ## maven-jar-plugin
-> copy the 
 ```
 <plugin>
 	<groupId>org.apache.maven.plugins</groupId>
