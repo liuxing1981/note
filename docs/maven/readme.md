@@ -5,6 +5,7 @@
 * local repo
 * center repo
 * custom repo
+
 ```
 #jboss
 <repositories>
