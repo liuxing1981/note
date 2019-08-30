@@ -60,6 +60,8 @@
 * [openstack](docs/openstack/README.md)
   * [glance](docs/openstack/glance.md)
 * [perl](docs/perl/README.md)
+* [plug-in](docs/plug-in/README.md)
+  * [:::wq](docs/plug-in/:::wq)
 * [python](docs/python/readme.md)
   * [basic](docs/python/basic.md)
   * [pip](docs/python/pip.md)
