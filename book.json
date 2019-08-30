@@ -1,5 +1,5 @@
 {
-    "plugins": ["-lunr", "-search", "search-plus","toggle-chapters","splitter","ace","edit-link","code","alerts","klipse","emphasize","back-to-top-button"],
+    "plugins": ["-lunr", "-search", "search-plus","expandable-chapters-small","splitter","ace","edit-link","code","flexible-alerts","klipse","emphasize","back-to-top-button"],
     "pluginsConfig": {
         "edit-link": {
             "base": "LINK_URL",
