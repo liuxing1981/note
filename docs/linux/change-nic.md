@@ -1,9 +1,11 @@
-#修改网卡名称为eth0、eth1
+# 修改网卡名称为eth0、eth1
 
 ### 修改网卡名称
-```cd /etc/sysconfig/network-scripts/
+```
+cd /etc/sysconfig/network-scripts/
 mv ifcfg-eno16777736 ifcfg-eth0
 ```
+
 ### 修改网卡配置文件
 ```
 [root@bogon ~]# cat /etc/sysconfig/network-scripts/ifcfg-eth0
@@ -24,7 +26,7 @@ ONBOOT=yes
 
 ### 修改grub
 > 增加net.ifnames=0 biosdevname=0到环境变量GRUB_CMDLINE_LINUX
-GRUB_CMDLINE_LINUX=net.ifnames=0 biosdevname=0
+> GRUB_CMDLINE_LINUX=net.ifnames=0 biosdevname=0
 ```
 cat /etc/sysconfig/grub
 GRUB_TIMEOUT=5
@@ -37,7 +39,9 @@ GRUB_DISABLE_RECOVERY="true"
 ```
 
 ### 生成启动菜单
-```grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
+grub2-mkconfig -o /boot/grub2/grub.cfg
+```
+
 ### 重启系统
 reboot
