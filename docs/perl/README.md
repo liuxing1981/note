@@ -35,7 +35,7 @@ my ($cmd,$ret1,$ret2);
 $cmd = "ls /tmp";
  
 print "*************执行反引号结果*****************\n";
-$ret1 = `$cmd`;
+$ret1 = \`$cmd\`;
 print "*************执行system结果*****************\n";
 $ret2 = system($cmd);
 print "*************反引号方式*****************\n";
@@ -56,11 +56,11 @@ open(PS, "/usr/bin/ps -aux | ");
 while (<PS>) { print } # process the output of ps command one line at a time
 close(PS);
 # 或者
-while(`/usr/bin/ps -aux`) {
+while(\`/usr/bin/ps -aux\`) {
     print;
 }
 # 或者
-print for(`ls -al`);
+print for(\`ls -al\`);
 ```
 
 ## 输入
@@ -74,16 +74,16 @@ print for(`ls -al`);
     print while(<IN>);
 
     open(OUT,">a") or die "The file is not found $!";
-    print OUT $_ for(`ls -al`); #用while不可以
+    print OUT $_ for(\`ls -al\`); #用while不可以
     close OUT;
 ```
 
 ## 执行shell命令
-1. system command  #返回执行结果 $?
-2. `command`  #返回输出结果
+1. system  #返回执行结果 $?
+2. \`command\`  #返回输出结果
 
 ## 非贪婪
-* 。+？
+* .+?
 * .*? 
 * {n,m}? 
 * {m,}?
