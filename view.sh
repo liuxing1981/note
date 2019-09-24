@@ -7,9 +7,13 @@
 #!/bin/bash
 #./commit.sh
 NAME=note
+EDIT_URL=http://10.67.27.139/luis/note/edit/master
+VOL=/home/xliu074/docker/$NAME
+sed -i "s#\"base\":.*#\"base\": \"$EDIT_URL\",#" book.json
 docker rm -fv $NAME 2>/dev/null
+rm -rf $VOL
 #docker volume create note
-[ -z "$1" ] && arg=local || arg=$1
+[ -z "$1" ] && arg=github || arg=$1
 case $arg in
     debug)
     docker run --name $NAME -it -p 4000:4000 \
@@ -30,10 +34,10 @@ case $arg in
     github)
 	if echo $HTTPS_USER && echo $HTTPS_PASS;then
 		docker run --name $NAME -d -p 4000:4000 \
-			-e HTTPS_URL=https://github.com/liuxing1981/${NAME}.git \
+			-e HTTPS_URL=http://10.67.27.139/luis/${NAME} \
 			-e HTTPS_USER=$HTTPS_USER \
 			-e HTTPS_PASS=$HTTPS_PASS \
-			-v /root/project \
+			-v $VOL:/root/project \
 			liuxing1981/gitbook
 		echo "gitbook in github view mode,http://localhost:4000"
 	else
@@ -45,5 +49,4 @@ case $arg in
 	*)
 		echo "other args!";;
 esac
-docker logs -f note
-
+docker logs -f $NAME

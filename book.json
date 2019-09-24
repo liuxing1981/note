@@ -2,7 +2,7 @@
     "plugins": ["-lunr", "-search", "search-plus","expandable-chapters-small","splitter","ace","edit-link","code","flexible-alerts","klipse","emphasize","back-to-top-button"],
     "pluginsConfig": {
         "edit-link": {
-            "base": "https://github.com/liuxing1981/note/edit/master/",
+            "base": "http://10.67.27.139/luis/note/edit/master",
             "label": "Edit This Page"
          }
      }
