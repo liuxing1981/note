@@ -7,11 +7,13 @@
 #!/bin/bash
 #./commit.sh
 NAME=note
-EDIT_URL=http://10.67.27.139/luis/note/edit/master
-VOL=/home/xliu074/docker/$NAME
+URL=https://github.com/liuxing1981/note
+EDIT_URL=$URL/edit/master
+VOL=/tmp/docker/$NAME
 sed -i "s#\"base\":.*#\"base\": \"$EDIT_URL\",#" book.json
 docker rm -fv $NAME 2>/dev/null
 rm -rf $VOL
+mkdir -p $VOL
 #docker volume create note
 [ -z "$1" ] && arg=github || arg=$1
 case $arg in
@@ -34,7 +36,8 @@ case $arg in
     github)
 	if echo $HTTPS_USER && echo $HTTPS_PASS;then
 		docker run --name $NAME -d -p 4000:4000 \
-			-e HTTPS_URL=http://10.67.27.139/luis/${NAME} \
+			--userns host \
+			-e HTTPS_URL=$URL \
 			-e HTTPS_USER=$HTTPS_USER \
 			-e HTTPS_PASS=$HTTPS_PASS \
 			-v $VOL:/root/project \
