@@ -15,6 +15,10 @@
  
     # 将当前分支推送到远程的同名分支
     git push origin HEAD
+    
+    # 将本地dev分支推送远程master分支
+    git push origin <本地分支名>:<远程分支名>
+    git push origin dev:refs/for/master
 
     # 设置只推送当前分支
     git config --global push.default simple
