@@ -1,4 +1,4 @@
-## ssh 设置
+# ssh 设置
 
 ## ssh 远程登录问题
 ```
@@ -31,9 +31,9 @@ chmod 600 ~provgw/.ssh/authorized_keys
 ## ssh config file
 ```
     Host lab
-    HostName 192.168.0.1
-    User root
-    IdentityFile ~/.ssh/id_rsa
+        HostName 192.168.0.1
+        User root
+        IdentityFile ~/.ssh/id_rsa
 ```
 
 ## ssh command
@@ -71,5 +71,77 @@ chmod 600 ~provgw/.ssh/authorized_keys
     ssh -p 2222 -f -N -L *:34560:127.0.0.1:8080 root@127.0.0.1
 
     ssh -p 2222 -f -N -L *:34560:114.215.64.142:8080 root@114.215.64.142
-``` 
+```
 
+## 堡垒机proxy
+
+内网host_a,host_b,host_c三台机器，其中a机器是堡垒机，可以连接b,c和外网机器d
+
+在host_d机器通过堡垒机host_a，直接ssh  到 host_b，host_c
+
+设置如下：
+
+#### In host_a(堡垒机):
+
+1. 确保host_a可以无密码访问host_b,host_c
+
+   ```
+   # in host_a
+   ssh-copy-id user@host_b
+   ssh-copy-id user@host_c
+   ```
+
+2. 在host_a主机设置sshd_config,允许TCP转发
+
+   ```
+   vim /etc/ssh/sshd_config
+   allowtcpforwarding yes
+   
+   systemctl restart sshd
+   ```
+
+#### In host_d--远程机:
+
+1. 远程机host_d,可以无密码访问host_a
+
+   ```
+   ssh-copy-id user@host_a
+   ```
+
+2. scp 主机host_a的私钥到主机 host_d
+
+   ```
+   mkdir pri_key
+   scp user@host_a:~/.ssh/id_rsa pri_key/host_a.rsa
+   ```
+
+3. 设置.ssh/config
+
+   ```bash
+   vi .ssh/config
+   
+   Host host_a
+     Hostname 10.67.31.140
+     User root
+   
+   Host host_b
+     Hostname 10.67.31.149
+     User root
+     ProxyCommand ssh -q -F .ssh/config -W %h:%p host_a
+     IdentityFile ~/pri_key/host_a.rsa
+     
+   Host slb02
+     Hostname 10.67.31.150
+     User root
+     ProxyCommand ssh -q -F .ssh/config -W %h:%p host_a
+     IdentityFile  ~/pri_key/host_a.rsa
+   
+   ```
+
+4. 完成设置，测试
+
+    ```
+    ssh host_a
+    ssh host_b
+    ssh host_c
+    ```
