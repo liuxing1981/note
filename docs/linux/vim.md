@@ -7,6 +7,9 @@ showkey -a
 
 在.bashrc
 stty erase ^H
+
+stty -a
+查看earse对应的键是否为^H
 ```
 
 ### 按backspace 出现^?问题
