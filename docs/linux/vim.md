@@ -9,10 +9,10 @@ showkey -a
 stty erase ^H
 
 stty -a
-查看earse对应的键是否为^H
+查看erase对应的键是否为^H
 ```
 
 ### 按backspace 出现^?问题
 ```
-stty earse ^?
+stty erase ^?
 ```
