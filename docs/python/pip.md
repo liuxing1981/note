@@ -12,6 +12,8 @@ python3 -m pip install -U pip
 
 ## 配置阿里镜像
 ```
+vi ~/.pip/pip.conf
+
 [global]
 index-url = http://mirrors.aliyun.com/pypi/simple/
 proxy = http://135.245.48.34:8000
