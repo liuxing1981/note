@@ -15,16 +15,10 @@ echom "hello world"
 :help numberwidth
 ```
 
-#### map/nmap/imap/vmap
-映射
-
-#### noremap/nnoremap/noiremap/novremap
-精准映射，防止映射的递归引用
-
-#### nunmap 
-删除映射
-
-#### iabbrev 缩写替换
+#### map/nmap/imap/vmap 映射
+#### noremap/nnoremap/noiremap/novremap 精准映射，防止映射的递归引用
+#### nunmap 删除映射
+#### abbrev 缩写替换
 ```
 :iabbrev adn and
 ```
