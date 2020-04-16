@@ -30,6 +30,9 @@
 1. https请求
 2. 得到server的数字证书（用CA私钥加密的server公钥）
 3. 用CA的公钥解密数字证书，判断是否是合法的server公钥
+4. 用解密的公钥生成pre-master密码，发给server
+5. server用自己的私钥解密得到pre-master密码
+6. 双方用pre-master密码通信
 
 
 

@@ -73,3 +73,26 @@ Certificate Signing  Request,即证书签名请求,这个并不是证书,而是�
 openssl req -noout -text -in my.csr 
 ```
 
+
+
+## 生成证书 + 私钥
+
+一步生成
+
+```bash
+ # CA证书 + 私钥
+ openssl req -new -x509 -newkey rsa:4096 -keyout cakey.key -out cacert.crt -config openssl.cnf -days 3650
+# 提取公钥
+openssl x509 -inform pem -in cacert.crt -pubkey -noout > caPub.key
+```
+
+多步生成
+
+```bash
+openssl genrsa -out server.key 4096
+openssl req -new -key server.key -out server.csr
+openssl x509 -req -in server.csr -out server.crt -signkey server.key -days 3650
+# 证书、私钥合成一个，用于签名
+cat server.key server.crt > server
+
+```

@@ -39,8 +39,6 @@ stty erase ^?
 :let mapleader=","
 :nnoremap <leader>d dd
 ```
-<<<<<<< HEAD
-=======
 ### 命令隔离符 | 相当与shell的;
 ```
 let a = "foo" | echom a
@@ -158,4 +156,10 @@ echo split("one,two,three", ",")
 echo join(["foo", "bar"], "...")
 ```
 * tolower/toupper 大小写转换
+
+### Normal!
+
+用于取消之前的映射，类似于noremap。
+
+NOTE: 执行命令的时候一定要用 normal!
 
