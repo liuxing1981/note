@@ -2,6 +2,7 @@
 ```
 import xml.etree.cElementTree as ET
 tree = ET.parse('country.xml')
+#tree = ET.fromstring(('').join(lines))
 root = tree.getroot()
 ET.dump(root)   #dump xml 结构到console
 ```
@@ -36,7 +37,7 @@ for rank in root.findall('.//rank'):
 返回相同结果
 ```
 * find('node') 在直接子节点中找到第一个node
-* findall('node') 在直接子节点中找到所有的node
+* findall('node') 在直接子节点(直接孩子节点)中找到所有的node
 * findtext('node') 返回node节点的text
 
 NOTE: iter不支持xpath。 如果findall使用xpath，就跟iter一样，例如
