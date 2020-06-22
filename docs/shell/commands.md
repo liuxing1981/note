@@ -75,3 +75,45 @@ find . -type f -name "*.c" print0 | xargs -0 wc -l
 ```
 cat files.txt | (while read arg; do cat $arg;done)
 ```
+
+# tar
+* -C 解压到指定路径
+* -cvf 打包
+* -xvf 解包
+* -tvf 显示tar包内容
+* -tvvf 显示详情
+* -Af 和合并tar文件
+```
+# merge f2.tar to f1.tar
+tar -Af f1.tar f2.tar
+```
+* -rf 向tar包添加文件
+```
+tar -rf f1.tar file1 file2
+```
+* -uvvf 根据访问时间进行添加
+* --delete 删除tar包中的文件
+```
+tar -f a.tar --delete file1 file2
+```
+* -z gzip
+* -j bzip2
+* --lzma lzma
+* --exclude "*.txt" 排除某个文件，用双引号
+* -X 把要排除的文件放到文件中
+```
+tar -cf a.tar -X list
+cat list
+file1
+file2
+file3
+```
+* --exclude-vcs 除去版本控制的目录 .git/sbuversion等
+* --totals 打包完成后，显示字节数
+* -a 根据扩展名自动选取解压算法
+```
+tar -xavvf a.tar.gz -C dir1
+```
+
+
+
