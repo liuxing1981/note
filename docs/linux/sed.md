@@ -1,12 +1,41 @@
 # sed
 
-```
+```bash
    #单引号替换成双引号
    sed "s/'/\"/g" test
+   
+   # 换行符替换
+   sed ':a;N;$!ba;s/\n/   /g'
+   
+   # 段落，段落结尾为\n，把这个段落读到模式空间，执行替换
+   sed  '{:a;N;/\n$/!{$!ba};s/\n/ /}' a
+  
+  sed -n '/^Handle/{:a;N;/\n$/!{$!ba};s/.*Range Size: \([^\n]*\).*/\1/p}' test
+  
+125.211.197.172:
+41ms
+41ms
+41ms
+41ms
+41ms
+41ms
+41ms
+218.60.8.171:
+6ms
+6ms
+6ms
+6ms
+6ms
+6ms
+6ms
+
+125.211.197.172: 41ms 41ms 41ms 41ms 41ms 41ms 41ms
+218.60.8.171: 6ms 6ms 6ms 6ms 6ms 6ms 6ms
+sed '/:$/{:a;N;/\n.*ms/s/\n/ /;ta;P;D}'
 ```
 
 ## 行前添加i,行尾添加a
-```
+```bash
 #5 i aaaaaaaa
 sed "5 i aaaaaaa" file
 sed "5 a aaaaaaa" file
@@ -23,7 +52,7 @@ sed "/hello/a bbbbbb" file
 ```
 
 ## c 替换匹配行
-```
+```bash
 # 含有fish的行，都替换
 sed "/fish/c This is my monkey, my monkey's name is wukong" my.txt
 This is my cat, my cat's name is betty
@@ -35,7 +64,7 @@ This is my goat, my goat's name is adam
 ## -n p 打印
 > -n 用于屏蔽每次自动从模式空间里打印行的这种默认行为，p手动指定打印
 
-## cmd打包
+## cmd 打包
 >cmd可以是多个，它们可以用分号分开，可以用大括号括起来作为嵌套命令
 ```
 # 对3行到第6行，匹配/This/成功后，再匹配/fish/，成功后执行d命令
