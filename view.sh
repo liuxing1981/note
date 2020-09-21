@@ -9,11 +9,9 @@
 NAME=note
 URL=https://github.com/liuxing1981/note
 EDIT_URL=$URL/edit/master
-VOL=/tmp/docker/$NAME
+PROXY=http://135.245.192.7:8000
 sed -i "s#\"base\":.*#\"base\": \"$EDIT_URL\",#" book.json
 docker rm -fv $NAME 2>/dev/null
-rm -rf $VOL
-mkdir -p $VOL
 #docker volume create note
 [ -z "$1" ] && arg=github || arg=$1
 case $arg in
@@ -35,12 +33,14 @@ case $arg in
     ;;
     github)
 	if echo $HTTPS_USER && echo $HTTPS_PASS;then
+		echo proxy is $PROXY
 		docker run --name $NAME -d -p 4000:4000 \
 			--userns host \
-			-e HTTPS_URL=$URL \
+			-e http_proxy=$PROXY \
+			-e https_proxy=$PROXY \
 			-e HTTPS_USER=$HTTPS_USER \
 			-e HTTPS_PASS=$HTTPS_PASS \
-			-v $VOL:/root/project \
+			-e HTTPS_URL=$URL \
 			liuxing1981/gitbook
 		echo "gitbook in github view mode,http://localhost:4000"
 	else
