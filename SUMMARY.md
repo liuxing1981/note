@@ -20,6 +20,7 @@
   * [sync_vim.sh](docs/expect/sync_vim.sh.md)
   * [syntax](docs/expect/syntax.md)
 * [git](docs/git/README.md)
+  * [git_lfs](docs/git/git_lfs.md)
   * [gitignore](docs/git/gitignore.md)
   * [gitrebase](docs/git/gitrebase.md)
 * [java](docs/java/README.md)
