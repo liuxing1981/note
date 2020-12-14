@@ -1,5 +1,13 @@
 # ssh 设置
 
+## ssh-keygen
+
+```bash
+ssh-keygen -t rsa -P "" -f ~/.ssh/id_rsa
+```
+
+
+
 ## ssh 远程登录问题
 ```
 vi /etc/ssh/sshd_config
