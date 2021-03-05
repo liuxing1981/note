@@ -24,6 +24,7 @@ tmux a -d
 * n next window
 * p previous window
 * $ rename session name
+* d detach session
 
 ## pane ctrl + b 
 * " h-split window
