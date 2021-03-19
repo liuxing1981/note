@@ -76,6 +76,8 @@
   * [basic](docs/python/basic.md)
   * [httpRequest](docs/python/httpRequest.md)
   * [pip](docs/python/pip.md)
+  * [pyinstaller](docs/python/pyinstaller.md)
+  * [virtualenv](docs/python/virtualenv.md)
   * [xml](docs/python/xml.md)
 * [shell](docs/shell/README.md)
   * [array](docs/shell/array.md)

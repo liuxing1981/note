@@ -1,5 +1,12 @@
 # The note for git
 
+## git config file
+
+1. /etc/gitconfig：包含了适用于系统所有用户和所有项目的值。 git config --system
+2. ~/.gitconfig：只适用于当前登录用户的配置。  git config --global
+3. 位于git项目目录中的.git/config：适用于特定git项目的配置。
+对于同一配置项，三个配置文件的优先级是1<2<3
+
 ```
     # alias
     alias push='push() { [ "$1" ] && git push origin HEAD:refs/for/$1 || echo "no branch name";git branch;};push'

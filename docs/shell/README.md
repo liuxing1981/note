@@ -1,5 +1,10 @@
 # The note for shell
 
+## 获取当前运行脚本的目录
+```
+scripts_dir="$( cd "$( dirname "$0"  )" && pwd  )"
+```
+
 创建密码
 ```
 openssl rand -hex 10

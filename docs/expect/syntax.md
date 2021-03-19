@@ -21,6 +21,7 @@ set def [lindex $argv 1]
 set response $def  
 set tout [lindex $argv 2]  set user [lindex $argv 0]
 set pass "root"
+unset pass
 
 # 数组 在Tcl中数组是无序的数据结构(以哈希表的方式存储),而列表才是有序的排列
 array set week {
@@ -29,6 +30,10 @@ array set week {
     Wed 3
 }
 puts $week(Mon)
+
+set color {red green blue}
+[ lindex $color 0 ]
+
 ```
 ### set timeout 默认为10s,-1为无限
 set timeout命令设置后面所有的expect命令的等待响应的超时时间为$tout(-l参数用来关闭任何超时设置)
@@ -124,3 +129,67 @@ puts {$a}  #不替换
 * argc 参数个数
 * argv 参数列表  [lindex $argv 0]
 * argv0 文件名
+
+### {*} 列表展开
+```
+file delete {*}[glob *.h]
+```
+
+### 内置命令
+* set a 1
+* unset a
+* incr a 1
+* env 环境变量 $env(HOME)
+* tcl_platform 
+  ```
+  $tcl_platform(platform) 运行平台
+  $tcl_platform(os)   操作系统
+  $tcl_platform(machine) 系统版本
+  ```
+* open 打开文件
+* close 关闭文件
+    ```
+    set a  [open input.txt]
+    puts [read $a];
+    puts $a
+    close $a
+    ```
+* exec 执行系统命令
+  ```
+  exec ls
+  set result [exec ls]
+  puts $result
+  ```
+* clock 系统时间
+  ```
+  set currentTime [clock seconds]
+  # The time is: 03:09:16
+  puts "The time is: [clock format $currentTime -format %H:%M:%S]"
+  ```
+* split
+  ```
+  set colorList3 [split "red_green_blue" _]
+  ```
+### 三目运算符
+```
+set a 10;
+set b [expr $a == 1 ? 20: 30]
+puts "Value of b is $b\n"
+set b [expr $a == 10 ? 20: 30]
+puts "Value of b is $b\n" 
+```
+
+### for 循环
+```
+# for loop execution
+for { set a 10}  {$a < 20} {incr a} {
+   puts "value of a: $a"
+}
+
+# 哈希迭代
+set personA(Name) "Dave"
+set personA(Age) 14
+foreach index [array names personA] {
+   puts "personA($index): $personA($index)"
+}
+```
