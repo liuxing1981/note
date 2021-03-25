@@ -8,6 +8,20 @@
 对于同一配置项，三个配置文件的优先级是1<2<3
 
 ```
+    # autocrlf
+    # Windows系统上，true，
+    # git pull LF-->CRLF
+    # git commit CRLF-->LF
+    git config --global core.autocrlf true 
+    
+    # on git pull 不转换 
+    # on git commit CRLF-->LF
+    git config --global core.autocrlf input
+    
+    # git pull，git commit 都不进行转换，CRLF 提交到仓库中
+    git config --global core.autocrlf false
+    
+    
     # alias
     alias push='push() { [ "$1" ] && git push origin HEAD:refs/for/$1 || echo "no branch name";git branch;};push'
 
